@@ -1,0 +1,79 @@
+
+
+	<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial" rel="stylesheet" />
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a>Student Portal</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li class="active"><a href="#" accesskey="1" title="">Home</a></li>
+				<li><a  (click)="onClick()"  accesskey="2" title="">About Us</a></li>
+				<li><a (click)="onClick()" accesskey="3" title="">Contact Us</a></li>
+				<li><a  (click)="login()" accesskey="4" title="" *ngIf="!isLoggedIn">LOGIN/SIGNUP</a></li>
+				<li><a [routerLink]="['/students']" accesskey="5" title="" *ngIf="isLoggedIn">Student Section</a></li>	
+				<li><a [routerLink]="['/form']" accesskey="6" title="" *ngIf="isLoggedIn">Register Student</a></li>	
+                <li><a  (click)="logout()" accesskey="7" title="" *ngIf="isLoggedIn">LOGOUT</a></li>
+				
+            </ul>
+		</div>
+	</div>
+</div>
+<div class="wrapper">
+        <div id="banner" class="container"><img src="https://cdn.collegebol.com/media/college_header_image/shri-govindram-seksaria-institute-of-technology-and-science-sgsits-indore.jpg" width="1200" height="500" alt="" /></div>
+        <div id="welcome" class="container">
+            
+        <div class="title">
+          <h2>Welcome to SGSITS</h2>
+            </div>
+            <p>This is Official SGSITS Students Portal, created by Computer Engineering Department</p>
+        </div>
+        
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div class="fbox1">
+            <span class="glyphicon glyphicon-home"></span><br>
+                <span>23 New Park Road Vallabh Nagar
+                <br />Indore MP</span>
+            </div>
+            <div class="fbox1">
+                    
+                <span class="glyphicon glyphicon-phone"></span><br>
+                <span>
+                    Telephone: 8089786741
+                </span>
+            </div>
+            <div class="fbox1">
+                <span class="glyphicon glyphicon-envelope"></span><br>
+                <span>sgsits@mail.com</span>
+            </div>
+        </div>
+    </div>
+    <div id="copyright">
+        <p>&copy; Untitled. All rights reserved.</p>
+        <ul class="contact">
+    
+            <li><a  class="icon icon-twitter"><span>Twitter</span></a></li>
+            <li><a  class="icon icon-facebook"><span></span></a></li>
+            <li><a  class="icon icon-rss"><span>Pinterest</span></a></li>
+        </ul>
+        <i class="fa fa-facebook"></i>
+	</div>
+</body>
+</html>
+
+

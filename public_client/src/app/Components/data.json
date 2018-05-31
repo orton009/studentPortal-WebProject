@@ -1,0 +1,79 @@
+{
+    "name" : "Alan Doe" ,
+    "tagline" : "Full Stack Developer" ,
+    "email" : "alan.doe@website.com" ,
+    "phone" : "0123 456 789" ,
+    "website" : "portfoliosite.com" ,
+    "socialLink" : {
+        "linkedIn" : "linkedin.com/in/alandoe" ,
+        "github" : "github.com/username" ,
+        "twitter" : "@twittername"
+    } ,
+    "education" : [
+        {
+            "degree" : "MSc in Computer Science" , 
+            "meta" : "University of London" ,
+            "time" : "2011 - 2012"
+        } ,
+        {
+            "degree" : "BSc in Applied Mathematics" , 
+            "meta" : "University of London" ,
+            "time" : "2011 - 2012"
+        } 
+    ] ,
+    "languages" : [
+        "English" , "French" , "Spanish"
+    ] ,
+    "interests" : [
+        "Climbing" , "Snowboarding" , "Cooking"
+    ] ,
+    "profile" : {
+        "summary"  : "Summarise your career here "
+    },
+    "experiences" : [
+        { 
+            "jobTitle" : "Lead Developer" ,
+            "time" : "2015 - Present" ,
+            "company" : "Startup Hubs, San Francisco" ,
+            "details" : "Job description here"
+        } ,
+        { 
+            "jobTitle" :  "Senior Software Engineer" ,
+            "time" : "2014 - 2015" ,
+            "company" : "Google, London" ,
+            "details" : "write Description here"
+        } ,
+        { 
+            "jobTitle" : "UI Developer" ,
+            "time" : "2012 - 2014" ,
+            "company" : "Amazon, London" ,
+            "details" : "Write description here"
+        } 
+    ] ,
+    "projects" : [
+        {
+            "projectTitle" : "Velocity" ,
+            "projectTagline" : "A responsive website template designed to help startups promote, market and sell their products." 
+        } ,
+        {
+            "projectTitle" : "Devstudio" ,
+            "projectTagline" : " A responsive website template designed to help web developers/designers market their services." 
+        } ,
+        {
+            "projectTitle" : "Tempo" ,
+            "projectTagline" : "A responsive website template designed to help startups promote their products or services and to attract users & investors." 
+        } ,
+        {
+            "projectTitle" : "Atom" ,
+            "projectTagline" : " A comprehensive website template solution for startups/developers to market their mobile apps." 
+        } ,
+        {
+            "projectTitle" : "Delta" ,
+            "projectTagline" : "A responsive Bootstrap one page theme designed to help app developers promote their mobile apps." 
+        }
+    ] ,
+    "skills" : [
+        "Python & Django" , "Javascript & Jquery" , "Angular" , "HTML & CSS" , "Ruby On Rails" , "Sketch and Phototshop"
+    ]
+
+}

@@ -1,0 +1,272 @@
+<div style="margin:20px;">
+        <div class="container-fluid" >
+            <div class='page-header'>
+                <div class='btn-toolbar pull-right'>
+                  <div class='btn-group'>
+                    <a href="/home" class='btn btn-primary'>home</a>
+                  </div>
+                </div>
+                <h2>Go To Home</h2>
+              </div>
+<form #studentForm="ngForm" (ngSubmit)="saveStudent()">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h1 >Student Registration</h1>    
+    </div>
+    <div class="panel-body">
+        <div class="vertical-group">
+            <h3>Personal Info</h3>
+            <hr><br>
+            <div class="form-group " [class.has-error]="fullNameControl.invalid && fullNameControl.touched"
+                [class.has-success]="fullNameControl.valid"
+            >
+                    <label for="name" class="control-label">Full Name</label>
+                    <input id="name" required type="text" class="form-control" name="name"
+                           [(ngModel)]="student.name" #fullNameControl="ngModel">
+                    <span class="help-block" *ngIf="fullNameControl.invalid && fullNameControl.touched">
+                      Full Name is required
+                    </span>
+            </div>
+            <div class="form-group"
+                [class.has-error]="emailControl.invalid && emailControl.touched"
+                [class.has-success]="emailControl.valid"
+                >
+                <label for="email" class="control-label">email</label>
+                <input id="email"  name="student.email" email [(ngModel)]="email" type="text" class="form-control" required
+                #emailControl="ngModel"
+                >   
+                <span class="help-block" *ngIf="emailControl.invalid && emailControl.touched">
+                        email is required
+                </span> 
+            </div>
+            <div class="form-group"
+                [class.has-error]="genderControl.invalid "
+                [class.has-success]="genderControl.valid"
+                >
+                <label>Gender</label>
+                <div class="from-control">
+                    <label class="radio-inline">
+                        <input required #gendercontrol="ngModel" type="radio" required value="male" name="gender" [(ngModel)]="student.gender" >
+                        Male    
+                    </label>
+                    <label required class="radio-inline">
+                            <input type="radio" #genderControl="ngModel" required value="female" name="gender" [(ngModel)]="student.gender" >
+                            Female    
+                    </label>                    
+                </div>
+                <span class="help-block" *ngIf="genderControl.invalid ">
+                        gender is required
+                </span>    
+            </div>
+            <div class="form-group"
+                [class.has-error]="phoneControl.invalid && phoneControl.touched"
+                [class.has-success]="phoneControl.valid"
+                >
+                <label for="phone" class="control-label">Phone</label>
+                <input type="text" pattern="[7-9]{1}[0-9]{9}" 
+                 id="phone"  name="phone"  [(ngModel)]="student.phone" class="form-control" required
+                #phoneControl="ngModel"
+                >   
+                <span class="help-block" *ngIf="phoneControl.invalid && phoneControl.touched">
+                        phone is required
+                </span> 
+            </div>
+            <!-- tagline -->
+            <div class="form-group">
+                <label for="tagline" class="control-label">Tagline</label>
+                <input type="text" name="tagline" id="tagline" [(ngModel)]="student.tagline" class="form-control" >
+            </div>
+            <!--website name -->
+            <div class="form-group">
+                    <label for="website" class="control-label">Website Name</label>
+                    <input type="text" name="website" id="website" [(ngModel)]="student.website" class="form-control" >
+            </div>
+            
+
+                 <!-- Profile summary -->
+            
+                 <div class="form-group">
+                        <label for="summary" class="control-label">Profile Summary</label>
+                        <textarea rows="4" cols="50" name="summary" class="form-control" [(ngModel)] = "student.summary">write here...</textarea>
+                </div>
+        </div>        
+            <!-- Education -->
+            <div class="vertical-group">
+                <h3> Education Section </h3>
+                <hr><br>
+                <div *ngFor="let edu of student.education; let in=index" class="vertical-group">
+                    <div class="form-group"
+                        [class.has-error]="degreeControl.invalid && degreeControl.touched"
+                        [class.has-success]="degreeControl.valid"
+                    >
+                        <label for="degree" class="control-label">Degree</label>
+                        <input type="text" 
+                        id="degree"  name="degree"  [(ngModel)]="student.education[in].degree" class="form-control" required
+                        #degreeControl="ngModel"
+                        >   
+                        <span class="help-block" *ngIf="degreeControl.invalid && degreeControl.touched">
+                                degree is required
+                        </span> 
+                    </div>
+                
+                    <div class="form-group"
+                        [class.has-error]="metaControl.invalid && metaControl.touched"
+                        [class.has-success]="metaControl.valid"
+                    >
+                        <label for="meta" class="control-label">University Name</label>
+                        <input type="text" 
+                        id="meta"  name="meta"  [(ngModel)]="student.education[in].meta" class="form-control" required
+                        #metaControl="ngModel"
+                        >   
+                        <span class="help-block" *ngIf="metaControl.invalid && metaControl.touched">
+                                university name is required
+                        </span> 
+                    </div>
+
+                    <div class="form-group"
+                        [class.has-error]="timeControl.invalid && timeControl.touched"
+                        [class.has-success]="timeControl.valid"
+                    >
+                        <label for="time" class="control-label">Year Range of education</label>
+                        <input type="text" 
+                        id="time"  name="time"  [(ngModel)]="student.education[in].time" class="form-control" required
+                        #timeControl="ngModel"
+                        >   
+                        <span class="help-block" *ngIf="timeControl.invalid && timeControl.touched">
+                                year of education is required
+                        </span> 
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary"
+                (click)="addEducation()" >Add Education</button>
+                <br><br>
+            </div>
+            
+            <!-- Languages -->
+            <div class="vertical-group">
+                <h3>Language Section</h3>
+                <hr><br>
+                <div *ngFor = "let lang of languages ; let in=index">
+                    <div class="form-group">
+                            <label for="lang" class="control-label">Add Language</label>
+                            <input type="text" name="lang" id="lang" [(ngModel)]="languages[in].value" class="form-control" >
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary"
+                (click)="addLanguage()" >Add Language</button>
+                <br><br>
+            </div>
+            <!-- Interests -->
+            <div class="vertical-group">
+                <h3>Interests </h3>
+                <hr><br>
+                <div *ngFor="let interest of interests ; let in=index">
+                        <div class="form-group">
+                                <label for="interest" class="control-label">Add Interests</label>
+                                <input type="text" name="interest" id="interest" [(ngModel)]="interests[in].value" class="form-control" >
+                        </div> 
+                </div>
+                <button type="button" class="btn btn-primary"
+                        (click)="addInterests()" >Add Interests</button>
+            </div>
+           
+
+            <!--Experiences -->
+            <div class="vertical-group">
+                <h3>Experiences Section</h3>
+                <hr><br>
+                <div *ngFor="let exp of student.experiences ; let in=index">
+                    <div class="form-group"
+                        [class.has-error]="jobControl.invalid && jobControl.touched"
+                        [class.has-success]="jobControl.valid"
+                    >
+                        <label for="jobTitle" class="control-label">Job Title</label>
+                        <input type="text" 
+                            id="jobTitle"  name="jobTitle"  [(ngModel)]="student.experiences[in].jobTitle" class="form-control" required
+                        #jobControl="ngModel"
+                        >   
+                        <span class="help-block" *ngIf="jobControl.invalid && jobControl.touched">
+                                Job Title is required
+                        </span> 
+                    </div>
+                
+                    <div class="form-group"
+                        [class.has-error]="jobTimeControl.invalid && jobTimeControl.touched"
+                        [class.has-success]="jobTimeControl.valid"
+                    >
+                        <label for="time" class="control-label">job Time</label>
+                        <input type="text" 
+                            id="time"  name="time"  [(ngModel)]="student.experiences[in].time" class="form-control" required
+                        #jobTimeControl="ngModel"
+                        >   
+                        <span class="help-block" *ngIf="jobTimeControl.invalid && jobTimeControl.touched">
+                                Job Time is required
+                        </span> 
+                    </div>
+
+                    <div class="form-group"
+                        [class.has-error]="companyControl.invalid && companyControl.touched"
+                        [class.has-success]="companyControl.valid"
+                    >
+                        <label for="company" class="control-label">Company Name </label>
+                        <input type="text" 
+                            id="company"  name="company"  [(ngModel)]="student.experiences[in].company" class="form-control" required
+                        #companyControl="ngModel"
+                        >   
+                        <span class="help-block" *ngIf="companyControl.invalid && companyControl.touched">
+                                Company Name is required
+                        </span> 
+                    </div>
+                    <div class="form-group">
+                            <label for="details" class="control-label">Job Details</label>
+                            <textarea rows="4" [(ngModel)]="student.experiences[in].details" cols="50" name="details" class="form-control">write here...</textarea>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary"
+                (click)="addExperiences()" >Add Experience</button>
+                <br><br>
+            </div>
+             
+            <!-- Projects -->
+            <div class="vertical-group">
+                <h3>Project Section</h3>
+                <hr><br>
+                <div *ngFor="let project of student.projects ; let in=index">
+                    <div class="form-group">
+                            <label for="projectTitle" class="control-label">Project Title</label>
+                            <input type="text" name="projectTitle" id="projectTitle" [(ngModel)]="student.projects[in].projectTitle" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                            <label for="projectTagline" class="control-label">project Tagline</label>
+                            <input type="text" name="projectTagline" id="projectTagline" [(ngModel)]="student.projects[in].projectTagline" class="form-control" >
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary"
+                        (click)="addProjects()" >Add Projects</button>
+            </div>
+                <!-- Skills -->
+                <div class="vertical-group">
+                    <h3>Skills Section</h3>
+                    <hr><br>
+                    <div class="vertical-group" *ngFor="let skilled of skills ; let in=index">
+                        <div class="form-group">
+                                <label for="skill" class="control-label">skill</label>
+                                <input type="text" name="skill" id="skill" [(ngModel)]="skills[in].value" class="form-control" >
+                        </div>
+                        
+                    </div>
+                    <button type="button" class="btn btn-primary"
+                        (click)="addSkill()" >Add skill</button>
+                       
+                </div>
+    
+    </div>
+    <div class="panel-footer">
+        <button type="submit" class="btn btn-primary" [disabled]="studentForm.invalid">Submit</button>    
+    </div>
+    
+</div>
+
+</form>
+</div>
+</div>
